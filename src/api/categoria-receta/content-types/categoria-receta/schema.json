@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categoria_recetas",
+  "info": {
+    "singularName": "categoria-receta",
+    "pluralName": "categoria-recetas",
+    "displayName": "Categoria Receta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre",
+      "required": true
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "recetas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::receta.receta",
+      "mappedBy": "categoria_receta"
+    }
+  }
+}
